@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="//mat1.gtimg.com/www/icon/favicon2.ico">
     <title>腾讯天气</title>
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.2/echarts.min.js" integrity="sha512-VdqgeoWrVJcsDXFlQEKqE5MyhaIgB9yXUVaiUa8DR2J4Lr1uWcFm+ZH/YnzV5WqgKf4GPyHQ64vVLgzqGIchyw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="module" src="./component/header.js"></script>
     <script type="module" src="./component/main.js"></script>
     <script type="module" src="./component/bc.js"></script>
     <script type="module" src="./component/double.js"></script>
     <script type="module" src="./component/slide.js"></script>
     <script type="module" src="./component/recommend.js"></script>
+
     <style>
         *{
             margin: 0;
             padding: 0;
+        }
+        .chart-content{
+            position: relative;
+            height: 40vw;
         }
     </style>
 </head>
@@ -213,18 +218,7 @@
             }
     </style>
     <div class="content">
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
-       <slide-item></slide-item>
+
     </div>
     </div>
    </template>
@@ -259,6 +253,11 @@
         position: absolute;
         text-align: left;
         top: 0;
+    }
+    .item .temperature-none{
+        text-align: center;
+        font-size: 14px;
+        position: relative;
     }
     </style>
     <div class="item">
@@ -328,11 +327,16 @@
         <div class="second_desc">尾号不限行</div>
     </div>
    </template>
+   
    <my-header></my-header>
    <my-main></my-main>
    <my-bc></my-bc>
    <my-double></my-double>
    <my-slide></my-slide>
+   <div class="chart-content">
+    <div id="chart" style="width: 100vw;height:90vw;"></div>
+   </div>
    <my-recommend></my-recommend>
 </body>
+<script src="./component/chart.js"></script>
 </html>

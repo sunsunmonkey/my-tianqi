@@ -1,3 +1,3 @@
-export const key = "50caaa6f049c438197c7cfb193ea0cf0";
-export const baseUrl = "https://devapi.qweather.com";
+export const key = "ce1c51363b014178a2adb1b9ce82d86d";
+export const baseUrl = "https://api.qweather.com";
 export const idUrl = "https://geoapi.qweather.com"

@@ -19,11 +19,14 @@ class Double extends HTMLElement{
         const temDom = this.shadowRoot.querySelectorAll(".item");
   
         temList.map((item,index)=>{
-            const {tempMax,tempMin,textDay,sunrise,sunset} = item
+            const {tempMax,tempMin,sunrise,sunset} = item
+            let textDay  = item.textDay
             const desc = temDom[index].querySelector(".desc")
             const highLow = temDom[index].querySelector(".high-low")
             const img = temDom[index].querySelector("img");
-            textDay.includes("雨")? textDay ="雨" :
+            if(textDay.includes("雨") ){
+                textDay ="雨" 
+            }
             img.src = textToImg.day[textDay]
             highLow.textContent = `${tempMax}/${tempMin}°`
             desc.textContent = textDay
