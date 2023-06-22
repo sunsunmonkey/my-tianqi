@@ -1,7 +1,9 @@
+import {baseInfo} from "../util/store.js"
+
 class Slide extends HTMLElement{
     constructor(){
         super();
-
+        console.log(baseInfo)
         const templateContent = document.querySelector("#slide").content;
         const shadowRoot = this.attachShadow({mode:'open'});
 

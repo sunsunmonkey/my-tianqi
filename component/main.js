@@ -1,6 +1,5 @@
 import {getLocationId} from "../service/getLocation.js"
-import {getNowTem} from "../service/getNowTem.js"
-
+import {getNowTem} from "../service/getNowTemp.js"
 
 class Main extends HTMLElement{
     constructor(){
@@ -14,7 +13,8 @@ class Main extends HTMLElement{
     }
     async connectedCallback (){
         const cityTemInfoId = await getLocationId(localStorage.getItem("local"))
-        const cityTemInfo =await getNowTem(cityTemInfoId)
+        const cityTemInfo =await getNowTem(cityTemInfoId);
+        localStorage.setItem("Id", cityTemInfoId)
         const {temp,text,windDir,windScale} = cityTemInfo.now
         const  number =  this.shadowRoot.querySelector(".number");
         const  cloud=  this.shadowRoot.querySelector(".cloud");
