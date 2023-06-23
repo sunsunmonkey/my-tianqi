@@ -15,9 +15,31 @@ class SearchBar extends HTMLElement {
         })
         const input = this.shadowRoot.querySelector("input");
 
+        let flag = false;
         input.addEventListener("input", async () => {
+            const myHotCity = document.querySelector("my-hot-city");
+            if(flag){
+            const myFound =document.querySelectorAll("my-found");
+            for (const item of myFound) {
+                item.style.display = "none";   
+            }
+            flag = false
+            }
+            myHotCity.style.display = "none";
             const searchList = document.querySelector("search-list").shadowRoot;
             const res = await getLocationList(input.value);
+
+            if(input.value){
+                if(!res){
+                    if(!flag){
+                        const noFound = document.createElement("my-found");
+                        const root = document.querySelector(".root");
+                        flag =true
+                        root.append(noFound)
+                    } 
+                }
+            }
+
             this.remove(searchList)
             res?.map(item => {
                 const inner = this.insert(item)
@@ -26,6 +48,7 @@ class SearchBar extends HTMLElement {
             })
         })
     }
+
     remove(searchList){
         let child = searchList.firstElementChild;
         while(child){
