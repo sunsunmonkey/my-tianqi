@@ -24,6 +24,22 @@ class HotCity extends HTMLElement{
         const content = this.shadowRoot.querySelector(".content");
         content.append(div)
         div.addEventListener("click",()=>{
+  
+            const storeUnJson =localStorage.getItem("searchHistory")
+            let storeJson;
+            if(!storeUnJson){
+                storeJson =[];
+            }else{
+                storeJson = JSON.parse(storeUnJson)
+            }
+            const Id = div.id;
+            const local= div.textContent;
+            storeJson.map((item)=>{
+                if(item.Id !== Id){
+                    storeJson.push({Id,local})
+                }
+            })
+            localStorage.setItem("searchHistory",JSON.stringify(storeJson) )
             localStorage.setItem("Id",div.id)
             localStorage.setItem("local",div.textContent)
             window.location.href ="index.html"

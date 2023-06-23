@@ -18,6 +18,8 @@ class SearchBar extends HTMLElement {
         let flag = false;
         input.addEventListener("input", async () => {
             const myHotCity = document.querySelector("my-hot-city");
+            const  myHisTory =  document.querySelector("my-history")
+
             if(flag){
             const myFound =document.querySelectorAll("my-found");
             for (const item of myFound) {
@@ -25,6 +27,7 @@ class SearchBar extends HTMLElement {
             }
             flag = false
             }
+            myHisTory.style.display = "none";
             myHotCity.style.display = "none";
             const searchList = document.querySelector("search-list").shadowRoot;
             const res = await getLocationList(input.value);
