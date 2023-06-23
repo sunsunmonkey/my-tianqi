@@ -1,6 +1,6 @@
 import {getTwiceTem} from "../service/getTwiceTem.js"
-import {baseInfo} from "../util/store.js"
 import {textToImg} from "../util/textToImg.js"
+
 class Double extends HTMLElement{
     constructor(){
         super();
@@ -13,9 +13,9 @@ class Double extends HTMLElement{
     }
     async connectedCallback (){
 
-        const res =await getTwiceTem(localStorage.getItem("Id"))
+        const res =await getTwiceTem(localStorage.getItem("Id"));
         const temList = res.daily;
-        temList.pop()
+        temList?.pop()
         const temDom = this.shadowRoot.querySelectorAll(".item");
   
         temList.map((item,index)=>{
@@ -27,15 +27,16 @@ class Double extends HTMLElement{
             if(textDay.includes("雨") ){
                 textDay ="雨" 
             }
+            if(textDay.includes("云") && textDay !=="多云" ){
+                textDay ="阴" 
+            }
             img.src = textToImg.day[textDay]
             highLow.textContent = `${tempMax}/${tempMin}°`
             desc.textContent = textDay
-           if(index==0){
-            baseInfo.sunrise = sunrise;
-            baseInfo.sunset = sunset;
-           }
+      
+
         })
-         
+        
     }
     
 }

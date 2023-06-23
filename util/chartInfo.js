@@ -1,14 +1,14 @@
-const myChart = echarts.init(document.getElementById('chart'));
-const  option = {
+
+export const  option = {
     animation: false,
     legend: {
       show:false
     },
     grid: {
-        left: '5%',    // 左边距
-        right: '5%',   // 右边距
-        top: '5%',     // 上边距
-        bottom: 0   // 下边距
+        left: '5%',    
+        right: '5%',  
+        top: '5%',     
+        bottom: 0   
       },
     xAxis: {
       type: 'category',
@@ -28,9 +28,9 @@ const  option = {
         name: 'Highest',
         type: 'line',
         smooth: true,
-        symbol: 'circle', // 数据点的形状
+        symbol: 'circle', 
         symbolSize: 7,
-        data: [35, 35, 31, 31, 32, 33, 33],
+        data: [],
         itemStyle: {
           color: 'orange'
         },
@@ -46,7 +46,7 @@ const  option = {
         smooth: true,
         symbol: 'circle', 
         symbolSize: 7,
-        data: [25,26,27,25,25,26,26],
+        data: [],
         label: {
           show: true, 
           formatter: '{c}°',
@@ -59,7 +59,3 @@ const  option = {
     ]
   };
           
-myChart.setOption(option);
-window.addEventListener('resize', function() {
-myChart.resize();
-});
