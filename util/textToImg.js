@@ -4,8 +4,9 @@ export const textToImg ={
         "晴":"./images/day/qing.png",
         "阴":"./images/day/yun.png",
         "雨":"./images/day/yu.png",
-        "日落":"./images/set.png",
         "日出":"./images/rise.png",
+        "日落":"./images/set.png",
+        
     },
     night:{
         "多云":"./images/night/yin.png",
