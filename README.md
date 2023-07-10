@@ -1,6 +1,6 @@
 # 腾讯天气
 
-跳转连接[GithubPage](https://sunsunmonkey.github.io/)
+其中的key要自己换
 
 ## 实现功能
 
